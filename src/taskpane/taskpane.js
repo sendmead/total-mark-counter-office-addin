@@ -1,9 +1,13 @@
 Office.onReady(() => {
-  document.getElementById("app-body").style.display = "block";
-  document.getElementById("score-btn").onclick = a5scoreCount;
-  // Start the timer for real-time-ish updates
-  setInterval(a5scoreCount, 2000);
-});
+    document.getElementById("app-body").style.display = "block";
+    document.getElementById("score-btn").onclick = a5scoreCount;
+  
+    // Trigger on save
+    Office.context.document.addHandlerAsync(
+      Office.EventType.DocumentSaved,
+      a5scoreCount
+    );
+  });
 
 async function a5scoreCount() {
   try {
