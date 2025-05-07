@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Office Add-in Minimal Test</title>
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-</head>
-<body>
-    <main id="app-body" style="display: none;">
-        <div id="score-btn">Button</div>
-        <div id="result"></div>
-    </main>
-    <script src="taskpane.js"></script>
-</body>
-</html>
+   <html>
+   <head>
+       <meta charset="UTF-8">
+       <title>Office Add-in Score Counter</title>
+       <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+       <style>
+           #app-body { padding: 10px; font-family: Arial, sans-serif; }
+           button { margin: 5px; padding: 5px 10px; cursor: pointer; }
+           #result { margin-top: 10px; white-space: pre-line; }
+           input[type="number"] { width: 60px; margin: 5px; padding: 5px; }
+           label { margin-right: 5px; }
+       </style>
+   </head>
+   <body>
+       <main id="app-body" style="display: none;">
+           <div>
+               <label for="poll-interval">Polling Interval (seconds):</label>
+               <input type="number" id="poll-interval" min="1" max="60" value="5">
+               <button id="update-interval">Update Interval</button>
+           </div>
+           <button id="score-btn">Calculate Score</button>
+           <div id="result">Waiting for document changes...</div>
+       </main>
+       <script src="taskpane.js"></script>
+   </body>
+   </html>
