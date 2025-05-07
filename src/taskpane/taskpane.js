@@ -8,7 +8,7 @@ Office.onReady((info) => {
 
     // Polling setup
     let lastHash = "";
-    let pollInterval = 5000; // Default: 10 seconds (in milliseconds)
+    let pollInterval = 10000; // Default: 10 seconds (in milliseconds)
     let intervalId = null;
 
     // Start polling with current interval
@@ -106,11 +106,4 @@ async function a5scoreCount() {
         });
     } catch (err) {
         console.error("Error in a5scoreCount:", err);
-        document.getElementById("result").innerText = "Error: " + err.message;
-    }
-}
-
-function extractScore(text) {
-    const match = text.match(/\((\d+)\s*分\)/);
-    return match ? match[1] : "";
-}
+        document.getElementById("result").inner
