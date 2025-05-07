@@ -5,7 +5,7 @@
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="TaskPaneApp">
   <Id>f5f7be49-2828-4d1d-8bf0-80ac0b6a8cf0</Id>
-  <Version>1.0.0.2</Version> <!-- incremented version -->
+  <Version>1.0.0.2</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="TotalMarkCounter"/>
@@ -13,9 +13,8 @@
   <IconUrl DefaultValue="https://sendmead.github.io/total-mark-counter-office-addin/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://sendmead.github.io/total-mark-counter-office-addin/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
-  <!-- AppDomains removed -->
   <Hosts>
-    <Host Name="Word"/> <!-- CHANGED -->
+    <Host Name="Word"/>
   </Hosts>
   <DefaultSettings>
     <SourceLocation DefaultValue="https://sendmead.github.io/total-mark-counter-office-addin/src/taskpane/taskpane.html"/>
@@ -24,7 +23,7 @@
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
                     xsi:type="VersionOverridesV1_0">
     <Hosts>
-      <Host xsi:type="Word"> <!-- CHANGED -->
+      <Host xsi:type="Word">
         <DesktopFormFactor>
           <GetStarted>
             <Title resid="GetStarted.Title"/>
