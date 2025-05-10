@@ -5,7 +5,7 @@
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="TaskPaneApp">
   <Id>f5f7be49-2828-4d1d-8bf0-80ac0b6a8cf0</Id>
-  <Version>1.0.0.3</Version> <!-- Increment version for changes -->
+  <Version>1.0.0.4</Version> <!-- Increment version for changes -->
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="TotalMarkCounter"/>
