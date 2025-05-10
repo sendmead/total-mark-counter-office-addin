@@ -7,16 +7,16 @@
     <style>
         #app-body { padding: 10px; font-family: Arial, sans-serif; }
         button { margin: 5px; padding: 5px 10px; cursor: pointer; }
-        #result { margin-top: 10px; white-space: pre-line; }
-        /* input[type="number"] was here, removed as it's no longer used */
-        /* label was here, removed as it's no longer used */
+        #result { margin-top: 10px; line-height: 1.6; /* Improves readability of multi-line text */ }
     </style>
 </head>
 <body>
     <main id="app-body" style="display: none;">
-        <!-- Polling interval UI removed -->
         <button id="score-btn">Calculate Score</button>
-        <div id="result">乙部: 0 分<br>丙部: 0 分</div>
+        <div id="result">
+            乙: <span id="score乙">0</span> / <span id="maxScore乙">?</span><br>
+            丙: <span id="score丙">0</span> / <span id="maxScore丙">?</span>
+        </div>
     </main>
     <script src="taskpane.js"></script>
 </body>
