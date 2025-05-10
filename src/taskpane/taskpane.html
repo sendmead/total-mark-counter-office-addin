@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Office Add-in Score Counter</title>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <style>
+        #app-body { padding: 10px; font-family: Arial, sans-serif; }
+        button { margin: 5px; padding: 5px 10px; cursor: pointer; }
+        #result { margin-top: 10px; white-space: pre-line; }
+        /* input[type="number"] was here, removed as it's no longer used */
+        /* label was here, removed as it's no longer used */
+    </style>
+</head>
+<body>
+    <main id="app-body" style="display: none;">
+        <!-- Polling interval UI removed -->
+        <button id="score-btn">Calculate Score</button>
+        <div id="result">乙部: 0 分<br>丙部: 0 分</div>
+    </main>
+    <script src="taskpane.js"></script>
+</body>
+</html>
