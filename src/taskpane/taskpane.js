@@ -44,10 +44,12 @@ async function a5scoreCount() {
             console.log("Paragraphs text loaded. Total paragraphs:", paragraphs.items.length);
 
             let partScores = {
+                "甲部": 0,
                 "乙部": 0,
                 "丙部": 0
             };
             let maxScores = { // To store extracted maximum scores
+                "甲部": null,
                 "乙部": null,
                 "丙部": null
             };
@@ -60,6 +62,12 @@ async function a5scoreCount() {
 
                 // Check for section headers (which contain max scores)
                 // These lines define the start of a new part and its max score.
+                if (/^甲部：/.test(text)) { // e.g., "甲部：短問題 (40分)"
+                    currentPart = "甲部";
+                    maxScores["甲部"] = extractMaxScoreFromLabel(text);
+                    console.log(`Section Start: ${currentPart}, Max Score: ${maxScores["甲部"]}, Text: ${text}`);
+                    return; // This line is a header, not a scorable item itself.
+                }
                 if (/^乙部：/.test(text)) { // e.g., "乙部：短問題 (40分)"
                     currentPart = "乙部";
                     maxScores["乙部"] = extractMaxScoreFromLabel(text);
@@ -76,7 +84,7 @@ async function a5scoreCount() {
                 // If we are inside a scorable part
                 if (currentPart) {
                     // Check for end-of-part markers
-                    if (text.includes("乙部完") || text.includes("丙部完")) {
+                    if (text.includes("甲部完") || text.includes("乙部完") || text.includes("丙部完")) {
                         console.log(`Section End: ${currentPart} found in text: ${text}`);
                         currentPart = null; // Reset current part
                         return; // Move to next paragraph
@@ -92,6 +100,8 @@ async function a5scoreCount() {
             });
 
             // Update the HTML display using the new span elements
+            document.getElementById("score甲").textContent = partScores["甲部"];
+            document.getElementById("maxScore甲").textContent = maxScores["甲部"] !== null ? maxScores["甲部"] : "?";
             document.getElementById("score乙").textContent = partScores["乙部"];
             document.getElementById("maxScore乙").textContent = maxScores["乙部"] !== null ? maxScores["乙部"] : "?";
             document.getElementById("score丙").textContent = partScores["丙部"];
